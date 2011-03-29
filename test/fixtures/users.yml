@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  email: MyString
+  crypted_password: MyString
+  salt: MyString
+  activation_code: MyString
+  activated_at: 2011-03-29 14:52:00
+  remember_token: MyString
+  remember_token_expires_at: 2011-03-29 14:52:00
+
+two:
+  email: MyString
+  crypted_password: MyString
+  salt: MyString
+  activation_code: MyString
+  activated_at: 2011-03-29 14:52:00
+  remember_token: MyString
+  remember_token_expires_at: 2011-03-29 14:52:00

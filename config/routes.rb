@@ -1,4 +1,24 @@
 OpenSourceOfficeHours::Application.routes.draw do
+  get "index/index"
+
+  get "index/about"
+
+  # registration
+  match "/register" => "account#new", :as => :register
+  match "/activate/:activation_code" => "account#activate", :activation_code => nil, :as => :user_activate
+  
+  # sessions control
+  resources :session
+  get "/login" => "session#new", :as => :login
+  post "/login" => "session#create"
+  match "/logout" => "session#destroy", :as => :logout
+  
+  
+  # account
+  resources :account, :as => :users do
+    get 'password', :on => :member
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -49,6 +69,9 @@ OpenSourceOfficeHours::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
+  root :to => "index#index"
+  match 'about' => "index#about"
+  
 
   # See how all your routes lay out with "rake routes"
 

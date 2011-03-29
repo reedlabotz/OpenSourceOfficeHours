@@ -4,7 +4,7 @@ use strict;
 use URI;
 use Web::Scraper;
 
-open FILE, ">courses.sql" or die $!;
+open FILE, ">courses_seed.rb" or die $!;
 
 
 # website to scrape
@@ -46,7 +46,7 @@ for my $i (0 .. $#{$res->{names}}) {
   
   
   # put the data in a file
-  print FILE "INSERT INTO courses (department,number,name) VALUES (\"$dep\",\"$num,\",\"$name\");";
+  print FILE "Course.create(:name => \"$name\", :number => \"$num\", :department => \"$dep\")";
   print FILE "\n";
   
  }
