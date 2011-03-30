@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  course: 
+  year: 2011-03-29
+  confidence: 
+
+two:
+  user: 
+  course: 
+  year: 2011-03-29
+  confidence: 
