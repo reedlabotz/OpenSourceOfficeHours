@@ -1,4 +1,8 @@
 OpenSourceOfficeHours::Application.routes.draw do
+  get "officehour/index"
+
+  get "officehour/show"
+
   get "index/index"
 
   get "index/about"

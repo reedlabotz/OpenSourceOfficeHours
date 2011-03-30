@@ -1,2 +1,4 @@
-<h1>Index#index</h1>
-<p>Find me in app/views/index/index.html.erb</p>
+<% @officehour.each do |o| %>
+<%= o.user_course.user.first_name %>
+<%= o.user_course.course.name %>
+<% end %>
