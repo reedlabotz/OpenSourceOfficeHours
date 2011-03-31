@@ -11,7 +11,7 @@
 
 <% @user_courses.each do |user_course| %>
   <tr>
-    <td><%= user_course.course.department + " " + user_course.course.number %></td>
+    <td><%= user_course.course.department + " " + user_course.course.number + " - " + user_course.course.name %></td>
     <td><%= user_course.year %></td>
     <td><%= user_course.confidence %></td>
     <td><%= link_to 'Edit', edit_user_course_path(user_course) %></td>
