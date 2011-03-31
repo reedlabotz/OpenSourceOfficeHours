@@ -3,11 +3,11 @@
 one:
   user: 
   course: 
-  year: 2011-03-29
-  confidence: 
+  year: 2011-03-30
+  confidence: 1
 
 two:
   user: 
   course: 
-  year: 2011-03-29
-  confidence: 
+  year: 2011-03-30
+  confidence: 1

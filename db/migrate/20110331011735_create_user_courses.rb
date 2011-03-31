@@ -3,7 +3,7 @@ class CreateUserCourses < ActiveRecord::Migration
     create_table :user_courses do |t|
       t.references :user
       t.references :course
-      t.date :year
+      t.string :year
       t.integer :confidence
 
       t.timestamps

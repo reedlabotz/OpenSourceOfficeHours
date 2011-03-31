@@ -4,5 +4,4 @@ class OfficehourController < ApplicationController
 
   def show
   end
-
 end

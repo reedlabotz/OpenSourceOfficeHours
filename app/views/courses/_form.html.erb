@@ -1,0 +1,33 @@
+<%= form_for(@user_course) do |f| %>
+  <% if @user_course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_course.errors.count, "error") %> prohibited this user_course from being saved:</h2>
+
+      <ul>
+      <% @user_course.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+     <%= label_tag "department" %><br />
+    <%= select("user_course","department", Course.departments) %>
+  </div>
+  <div class="field">
+      <%= label_tag "number" %><br />
+      <%= select("user_course","number", @numbers) %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.select(:year,Course.years,:prompt => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :confidence %><br />
+    <%= f.select(:confidence,[1,2,3,4,5,6,7,8,9,10],:prompt => true) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

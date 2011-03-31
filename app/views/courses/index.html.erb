@@ -1,0 +1,25 @@
+<h1>Your Courses</h1>
+
+<table>
+  <tr>
+    <th>Course</th>
+    <th>Year</th>
+    <th>Confidence</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_courses.each do |user_course| %>
+  <tr>
+    <td><%= user_course.course.department + " " + user_course.course.number %></td>
+    <td><%= user_course.year %></td>
+    <td><%= user_course.confidence %></td>
+    <td><%= link_to 'Edit', edit_user_course_path(user_course) %></td>
+    <td><%= link_to 'Destroy', user_course, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add Course', new_user_course_path %>

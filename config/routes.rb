@@ -1,4 +1,30 @@
 OpenSourceOfficeHours::Application.routes.draw do
+  get "courses/index"
+
+  get "courses/create"
+
+  get "courses/new"
+
+  get "courses/edit"
+
+  get "courses/show"
+
+  get "courses/update"
+
+  get "courses/destroy"
+
+  get "index/create"
+
+  get "index/new"
+
+  get "index/edit"
+
+  get "index/show"
+
+  get "index/update"
+
+  get "index/destroy"
+
   get "officehour/index"
 
   get "officehour/show"
@@ -11,6 +37,9 @@ OpenSourceOfficeHours::Application.routes.draw do
   match "/register" => "account#new", :as => :register
   match "/activate/:activation_code" => "account#activate", :activation_code => nil, :as => :user_activate
   
+  match "/officehour/show/:id" => "officehour#show"
+  match "/officehour" => "officehour#index"
+  
   # sessions control
   resources :session
   get "/login" => "session#new", :as => :login
@@ -22,6 +51,8 @@ OpenSourceOfficeHours::Application.routes.draw do
   resources :account, :as => :users do
     get 'password', :on => :member
   end
+  
+  resources :courses, :as => :user_courses
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

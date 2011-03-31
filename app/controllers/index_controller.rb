@@ -1,7 +1,7 @@
 class IndexController < ApplicationController
-  def index
-	@officehour = OfficeHours.find(:all)
-	
+  skip_before_filter :login_required
+  
+  def index	
   end
 
   def about
