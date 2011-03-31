@@ -7,8 +7,25 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
+  <div class="head">
+    <div class="head_title">
+      <h1><a href="/">Open Source Office Hours</a></h1>
+    </div>
+    <div class="head_right_menu">
+      <% if logged_in? %>
+        <a href="/account">Account</a> | <a href="/logout">Logout</a>
+      <% else %>
+        <a href="/register">Register</a> | <a href="/login">Login</a >
+      <% end %>
+    </div>  
+    <div class="clear"></div>
+  </div>
+  <div class="main_hold">
+    <%= yield %>
+  </div>
+  <div class="footer">
+    &copy; Open Source Office Hours 2011 | <a href="/about">About</a>
+  </div>
 
 </body>
 </html>

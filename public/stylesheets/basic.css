@@ -1,0 +1,50 @@
+body{
+   margin:0px;
+   padding:0px;
+}
+div{
+   margin:0px;
+   padding:0px;
+}
+
+
+.head{
+   background:#66CCFF;
+   margin-bottom:15px;
+   padding:10px 10px 20px 10px;
+   
+}
+
+.head h1{
+   margin:0px;
+   padding:0px;
+}
+
+.head_title{
+   float:left;
+}
+
+.head_right_menu{
+   float:right;
+}
+
+.main_hold{
+   padding-left:10px;
+   padding-right:10px;
+}
+
+.clear{
+   width:100%;
+   clear:both;
+}
+
+.footer{
+   font-size:10px;
+   font-color:#CCCCCC;
+   border-top:1px solid #CCCCCC;
+   margin-left:10px;
+   margin-right:10px;
+   margin-top:20px;
+   padding-top:10px;
+   padding-bottom:10px;
+}
