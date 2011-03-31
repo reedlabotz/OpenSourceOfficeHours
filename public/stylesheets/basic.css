@@ -48,3 +48,19 @@ div{
    padding-top:10px;
    padding-bottom:10px;
 }
+
+#flash_notice{
+   padding:10px;
+   border:1px solid #CCCCCC;
+   background:#FFF380;
+   margin:10px;
+   color:#000000;
+}
+
+#flash_errors{
+   padding:10px;
+   border:1px solid #CCCCCC;
+   background:#F75D59;
+   margin:10px;
+   color:#000000;
+}

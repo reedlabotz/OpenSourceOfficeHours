@@ -20,6 +20,20 @@
     </div>  
     <div class="clear"></div>
   </div>
+  <div id="flashes">
+
+    <% if flash[:notice] %>
+      <p id="flash_notice" class="messages notice"><%= flash[:notice] %></p>
+      <%= javascript_tag "$('#flash_notice').effect('highlight',{},1000);" %>
+    <% end %>
+
+    <% if flash[:error] || flash[:errors] %>
+      <p id="flash_errors" class="messages errors"><%= flash[:error] || flash[:errors] %></p>
+      <%= javascript_tag "$('#flash_errors').effect('highlight',{},1000);" %>
+    <% end %>
+
+    <% flash[:error] = flash[:errors] = flash[:notice] = nil %>
+  </div>
   <div class="main_hold">
     <%= yield %>
   </div>
