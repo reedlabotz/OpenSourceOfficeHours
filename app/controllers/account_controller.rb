@@ -14,7 +14,7 @@ class AccountController < ApplicationController
   def update
       @user = current_user
       if @user.update_attributes(params[:user])
-        redirect_to(@user, :notice => 'Your account was successfully updated.')
+        redirect_to("/account", :notice => 'Your account was successfully updated.')
       else
         render :action => "edit"
       end
