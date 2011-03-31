@@ -1,2 +1,11 @@
-<h1>Officehour#index</h1>
-<p>Find me in app/views/officehour/index.html.erb</p>
+<% if @officehours.blank? %>
+   <p>There are no office hours currently in the system.</p>
+<% else %>
+   <p>These are the office hours in the system:</p>
+   <ul id="officehours">
+      <% @officehours.each do |o| %>
+         <li><%= o.user_course.user.email %> - 
+         <%= o.user_course.course.name %></li>
+      <% end %>
+   </ul>
+<% end %>
