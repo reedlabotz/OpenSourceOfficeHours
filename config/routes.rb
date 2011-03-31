@@ -53,7 +53,7 @@ OpenSourceOfficeHours::Application.routes.draw do
   end
   
   resources :courses, :as => :user_courses
-  
+  match "/courses/numbers/:department" => "courses#numbers"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
