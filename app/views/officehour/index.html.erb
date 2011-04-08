@@ -20,8 +20,8 @@
       <p>These are the office hours in the system:</p>
       <ul id="officehours">
          <% @officehours.each do |o| %>
-            <li><%= o.user_course.user.email %> - 
-            <%= o.user_course.course.name %></li>
+            <li><%= o.user.email %> - 
+            <%= o.course.name %></li>
          <% end %>
       </ul>
    <% end %>

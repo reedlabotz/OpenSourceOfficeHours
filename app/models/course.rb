@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  has_many :user_courses
+  has_many :office_hours, :through => :user_courses
   
   def self.departments
     @depratmets = Course.find_by_sql("SELECT department FROM courses GROUP BY department ORDER BY department").map{|c| c.department}
