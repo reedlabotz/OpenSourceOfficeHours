@@ -3,7 +3,7 @@ class IndexController < ApplicationController
   
   def index
     if logged_in?
-      redirect_to "/courses"
+      redirect_to "/officehour"
     end	
   end
 
