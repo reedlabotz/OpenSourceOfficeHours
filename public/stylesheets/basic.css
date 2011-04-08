@@ -64,3 +64,13 @@ div{
    margin:10px;
    color:#000000;
 }
+
+
+.search_menu{
+   width:250px;
+   float:left;
+}
+
+.search_results{
+   float:left;
+}

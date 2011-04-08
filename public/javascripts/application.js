@@ -9,4 +9,13 @@ $(document).ready(function(){
         $('#user_course_number').disabled = false;
       });
    });
+   
+   $('#course_department').change(function() {
+      $('#course_number').html("<option>Loading...</option>");
+      $('#course_number').disabled = true;
+      $.get('/courses/numbers/'+$('#course_department').val(), function(data) {
+        $('#course_number').html(data);
+        $('#course_number').disabled = false;
+      });
+   });
 });
