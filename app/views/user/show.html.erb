@@ -1,0 +1,21 @@
+<h1><%= @user.displayname %></h1>
+<h2>Courses</h2>
+<% if @user.user_courses.count == 0 %>
+<em> This user has no courses.</em>
+<% else %>
+<ul>
+   <% @user.user_courses.each do |c| %>
+      <li><%= c.course.name %> - <%= c.confidence %></li>
+   <% end %>
+</ul>
+<% end %>
+<h2>Ratings</h2>
+<% if @user.ratings.count == 0 %>
+<em> This user has not been rated.</em>
+<% else %>
+<ul>
+   <% @user.ratings.each do |r| %>
+      <li><%= r.rating %> - <%= r.comments %></li>
+   <% end %>
+</ul>
+<% end %>
