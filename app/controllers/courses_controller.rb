@@ -62,7 +62,11 @@ class CoursesController < ApplicationController
   
   
   def numbers
-    @numbers = Course.numbers(params[:department])
+    if(params[:department] == "All")
+      @numbers = ["Select Department"]
+    else
+      @numbers = Course.numbers(params[:department])
+    end
     render :layout => false
   end
 end

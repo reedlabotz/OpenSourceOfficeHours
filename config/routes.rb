@@ -39,8 +39,11 @@ OpenSourceOfficeHours::Application.routes.draw do
   match "/register" => "account#new", :as => :register
   match "/activate/:activation_code" => "account#activate", :activation_code => nil, :as => :user_activate
   
-  match "/officehour/show/:id" => "officehour#show"
-  match "/officehour" => "officehour#index"
+  
+  # officehours
+  resources :officehour
+  #match "/officehour/show/:id" => "officehour#show", :as => :officehour
+  #match "/officehour" => "officehour#index"
   
   # sessions control
   resources :session
