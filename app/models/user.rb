@@ -71,14 +71,15 @@ class User < ActiveRecord::Base
   
   def score
     num_office_hours = self.office_hours.count                             ## num office hours held    12.5%
-    ave_rating = self.ratings.average(:number)                             ## average rating           75%
+    ave_rating = self.ratings.average(:number) || 5                             ## average rating           75%
     num_ratings_made = Rating.count(:conditions => "user_id = 'self.id'")  ## number of comments made  12.5%
     
-    max_office_hours = ActiveRecord::Base.connection.select_one('SELECT MAX(count) AS count FROM(SELECT COUNT(*) AS count FROM "office_hours" INNER JOIN "user_courses" ON "office_hours".user_course_id = "user_courses".id GROUP BY "user_courses".user_id = 1)').count
+    max_office_hours = ActiveRecord::Base.connection.select_one('SELECT MAX(count) AS count FROM(SELECT COUNT(office_hours.id) AS count FROM "office_hours" INNER JOIN "user_courses" ON "office_hours".user_course_id = "user_courses".id GROUP BY "user_courses".user_id = 1)').count
                                                                            ## max office hours held
-    max_ratings_made = ActiveRecord::Base.connection.select_one('SELECT MAX(count) as count FROM(SELECT COUNT(*) AS count FROM "ratings" GROUP BY user_id)').count
+    max_ratings_made = ActiveRecord::Base.connection.select_one('SELECT MAX(count) as count FROM(SELECT COUNT(ratings.id) AS count FROM "ratings" GROUP BY user_id)').count
                                                                            ## max comments made
     
+    max_ratings_made
     (((num_office_hours/max_office_hours) * 10 * 0.125) + (ave_rating * 0.75) + ((num_ratings_made/max_ratings_made) * 10 * 0.125))
   end
 
