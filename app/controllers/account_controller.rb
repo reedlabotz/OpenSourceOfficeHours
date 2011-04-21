@@ -44,8 +44,8 @@ class AccountController < ApplicationController
     
     if success && @user.errors.empty?
       UserMailer.registration_confirmation(@user).deliver
-      redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
+      redirect_to('/')
     else
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
       render :action => 'new'
@@ -67,6 +67,39 @@ class AccountController < ApplicationController
       flash[:error]  = "We couldn't find a user with that activation code -- check your email? Or maybe you've already activated -- try signing in."
       redirect_back_or_default('/')
     end
+  end
+  
+  def destroy
+    @user_courses = current_user.user_courses.all
+    
+    # delete all user courses
+    @user_courses.each do |c|
+      # delete all ratings about this user
+      @ratings = c.ratings.all
+      @ratings.each do |r|
+        r.destroy
+      end
+      
+      # delete all office hours held by this user
+      @officehours = c.office_hours.all
+      @officehours.each do |o|
+        o.destroy
+      end
+
+      c.destroy
+    end
+    
+    # delete all ratings made by this user
+    @ratings = current_user.ratings.all
+    @ratings.each do |r|
+      r.destroy
+    end
+    @user = current_user
+    
+    logout_killing_session!
+    @user.destroy
+    flash[:notice] = "Your account has been deleted from our system."
+    redirect_to '/'
   end
 
 end

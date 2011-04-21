@@ -1,4 +1,8 @@
 <h1>Account</h1>
 <p><strong>Email:</strong> <%= current_user.email %></p>
+<p><strong>First Name:</strong> <%= current_user.first_name %></p>
+<p><strong>Last Name:</strong> <%= current_user.last_name %></p>
 
 <p><%= link_to 'Change Password', password_user_path(current_user) %></p>
+
+<p><%= link_to 'Delete Account', current_user, :confirm => 'Are you sure?', :method => :delete %></p>
