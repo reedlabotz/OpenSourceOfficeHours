@@ -74,9 +74,9 @@ class User < ActiveRecord::Base
     ave_rating = self.ratings.average(:number)                             ## average rating           75%
     num_ratings_made = Rating.count(:conditions => "user_id = 'self.id'")  ## number of comments made  12.5%
     
-    max_office_hours = ActiveRecord::Base.connection.select_one('SELECT MAX(count) AS count FROM(SELECT COUNT(office_hours.id) AS count FROM "office_hours" INNER JOIN "user_courses" ON "office_hours".user_course_id = "user_courses".id GROUP BY "user_courses".user_id = 1)').count
+    max_office_hours = ActiveRecord::Base.connection.select_one('SELECT MAX(count) AS count FROM(SELECT COUNT(office_hours.id) AS count FROM office_hours INNER JOIN user_courses ON office_hours.user_course_id = user_courses.id GROUP BY user_courses.user_id = 1) AS AllCount').count
                                                                            ## max office hours held
-    max_ratings_made = ActiveRecord::Base.connection.select_one('SELECT MAX(count) as count FROM(SELECT COUNT(ratings.id) AS count FROM "ratings" GROUP BY user_id)').count
+    max_ratings_made = ActiveRecord::Base.connection.select_one('SELECT MAX(count) as count FROM(SELECT COUNT(ratings.id) AS count FROM ratings GROUP BY user_id) AS AllCount').count
                                                                            ## max comments made
     
     if(num_office_hours == nil || ave_rating == nil || num_ratings_made == nil || max_office_hours == nil || max_ratings_made == nil)
