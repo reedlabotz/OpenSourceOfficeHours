@@ -1,0 +1,19 @@
+<div class="addHour">
+  <h1>Add an Office Hour</h1>
+
+<% form_for @officehour, :url => officehour_path do |f| %> 
+  <p><%= label_tag 'Start Time' %><br/>
+  <%= f.text_field :start_time %></p>
+  
+  <p><%= label_tag 'End Time' %><br/>
+  <%= f.text_field :end_time %></p>
+  
+  <p><%= label_tag 'Location' %><br/>
+  <%= f.text_field :location %></p>
+  
+  <p><%= label_tag 'Location details' %><br/>
+  <%= f.text_field :location_details %></p>
+
+  <p><%= submit_tag 'Add office hour' %></p>
+  <% end %>
+</div>
