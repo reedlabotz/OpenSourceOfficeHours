@@ -1,4 +1,4 @@
-class OfficehourController < ApplicationController
+class OfficeHoursController < ApplicationController
   def index
     @course_department = params[:course_department] || "All"
     @course_number =  params[:course_number] || "Select Department"
@@ -22,7 +22,7 @@ class OfficehourController < ApplicationController
   
   
   def create
-	@officehour = current_user.office_hours.new(params[:officehour])
+	@officehour = current_user.office_hours.new(params[:office_hour])
 		if @officehour.save
 			redirect_to(@officehour, :notice => 'An OfficeHour was successfully created!') 
 		else

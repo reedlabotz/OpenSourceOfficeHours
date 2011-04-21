@@ -1,5 +1,5 @@
 <h3>Add a Rating</h3>
-<%= form_for(@rating, :url => officehour_rating_path(@officehour,@rating)) do |f| %>
+<%= form_for(@rating, :url => office_hour_rating_path(@officehour,@rating)) do |f| %>
   <% if @rating.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this user_course from being saved:</h2>

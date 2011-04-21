@@ -20,7 +20,7 @@
       <p>These are the office hours in the system:</p>
       <ul id="officehours">
          <% @officehours.each do |o| %>
-            <li><%= link_to(o.user.displayname + " - " + o.course.name,officehour_path(o)) %></li>
+            <li><%= link_to(o.user.displayname + " - " + o.course.name,o) %></li>
          <% end %>
       </ul>
    <% end %>

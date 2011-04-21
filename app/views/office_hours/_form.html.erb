@@ -1,7 +1,5 @@
 <div class="addHour">
-  <h1>Add an Office Hour</h1>
-
-<% form_for @officehour, :url => officehour_path do |f| %> 
+<%= form_for @officehour do |f| %> 
   <p><%= label_tag 'Start Time' %><br/>
   <%= f.text_field :start_time %></p>
   

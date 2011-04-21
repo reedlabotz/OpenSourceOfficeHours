@@ -3,7 +3,7 @@ class IndexController < ApplicationController
   
   def index
     if logged_in?
-      redirect_to "/officehour"
+      redirect_to office_hours_path
     end	
   end
 

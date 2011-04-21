@@ -1,41 +1,5 @@
 OpenSourceOfficeHours::Application.routes.draw do
-  get "ratings/create"
 
-  get "user/show"
-
-  get "courses/index"
-
-  get "courses/create"
-
-  get "courses/new"
-
-  get "courses/edit"
-
-  get "courses/show"
-
-  get "courses/update"
-
-  get "courses/destroy"
-
-  get "index/create"
-
-  get "index/new"
-
-  get "index/edit"
-
-  get "index/show"
-
-  get "index/update"
-
-  get "index/destroy"
-
-  get "officehour/index"
-
-  get "officehour/show"
-
-  get "index/index"
-
-  get "index/about"
 
   # registration
   match "/register" => "account#new", :as => :register
@@ -43,7 +7,7 @@ OpenSourceOfficeHours::Application.routes.draw do
   
   
   # officehours
-  resources :officehour do
+  resources :office_hours do
     match "/ratings" => "ratings#create", :as => :rating
   end
   #match "/officehour/show/:id" => "officehour#show", :as => :officehour
