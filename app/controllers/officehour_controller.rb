@@ -15,6 +15,8 @@ class OfficehourController < ApplicationController
 
   def show
 	  @officehour = OfficeHour.find(params[:id])
+	  @ratings = @officehour.user_course.ratings.all
+	  @rating = Rating.new
   end
 
 end

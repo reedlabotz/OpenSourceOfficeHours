@@ -31,7 +31,6 @@
       <p id="flash_errors" class="messages errors"><%= flash[:error] || flash[:errors] %></p>
       <%= javascript_tag "$('#flash_errors').effect('highlight',{},1000);" %>
     <% end %>
-
     <% flash[:error] = flash[:errors] = flash[:notice] = nil %>
   </div>
   <div class="main_hold">

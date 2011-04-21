@@ -1,4 +1,6 @@
 OpenSourceOfficeHours::Application.routes.draw do
+  get "ratings/create"
+
   get "user/show"
 
   get "courses/index"
@@ -41,7 +43,9 @@ OpenSourceOfficeHours::Application.routes.draw do
   
   
   # officehours
-  resources :officehour
+  resources :officehour do
+    match "/ratings" => "ratings#create", :as => :rating
+  end
   #match "/officehour/show/:id" => "officehour#show", :as => :officehour
   #match "/officehour" => "officehour#index"
   
@@ -57,7 +61,7 @@ OpenSourceOfficeHours::Application.routes.draw do
     get 'password', :on => :member
   end
   
-  match "/user/:id" => "user#show"
+  match "/user/:id" => "user#show", :as => :member
   
   resources :courses, :as => :user_courses
   match "/courses/numbers/:department" => "courses#numbers"

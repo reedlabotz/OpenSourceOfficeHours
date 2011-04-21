@@ -1,0 +1,28 @@
+<h3>Add a Rating</h3>
+<%= form_for(@rating, :url => officehour_rating_path(@officehour,@rating)) do |f| %>
+  <% if @rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this user_course from being saved:</h2>
+
+      <ul>
+      <% @rating.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.select(:number,[1,2,3,4,5,6,7,8,9,10],:prompt => true) %>
+  </div>
+  
+  <div class="field">
+     <%= f.label :comment %><br />
+     <%= f.text_area(:comment) %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

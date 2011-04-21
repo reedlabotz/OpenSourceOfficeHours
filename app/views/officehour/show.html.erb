@@ -1,5 +1,16 @@
-<h1><%= @officehour.user_course.course.department %> <%=  @officehour.user_course.course.number %> - <%= @officehour.user_course.course.name %></h1>
+<h2>Info</h2>
 <p>
-<strong>User: </strong><%= link_to(@officehour.user_course.user.displayname, @officehour.user_course.user) %><br />
+<strong>Course: </strong><%= @officehour.user_course.course.department %> <%=  @officehour.user_course.course.number %> - <%= @officehour.user_course.course.name %><br />
+<strong>User: </strong><%= link_to(@officehour.user_course.user.displayname, member_path(@officehour.user_course.user)) %><br />
 <strong>Confidence: </strong><%= @officehour.user_course.confidence %><br />
+<strong>Start Time: </strong><%= @officehour.start_time %><br />
+<strong>End Time: </strong><%= @officehour.end_time %><br />
+<strong>Location: </strong><%= @officehour.location %><br />
+<strong>Details: </strong><%= @officehour.location_details %>
 </p>
+<h2>Ratings</h2>
+   <% if(@ratings.count > 0) %>
+      <%= render @ratings %>
+   <% end %>
+   <%= render 'rating_form' %>
+<p>

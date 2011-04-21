@@ -74,3 +74,13 @@ div{
 .search_results{
    float:left;
 }
+
+.rating{
+   border:1px solid #cccccc;
+   padding:5px;
+   width:500px;
+}
+
+.rating-title{
+   
+}

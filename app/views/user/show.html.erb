@@ -1,4 +1,5 @@
 <h1><%= @user.displayname %></h1>
+<h2>Score: <%= @user.score %></h2>
 <h2>Courses</h2>
 <% if @user.user_courses.count == 0 %>
 <em> This user has no courses.</em>
@@ -11,11 +12,10 @@
 <% end %>
 <h2>Ratings</h2>
 <% if @user.ratings.count == 0 %>
-<em> This user has not been rated.</em>
+   <em> This user has not been rated.</em>
 <% else %>
-<ul>
-   <% @user.ratings.each do |r| %>
-      <li><%= r.rating %> - <%= r.comments %></li>
+   <% @user.user_courses.each do |c| %>
+      <h3><%= c.department %> <%= c.number %> - <%= c.course.name %></h3>
+      <%= render c.ratings %>
    <% end %>
-</ul>
 <% end %>
