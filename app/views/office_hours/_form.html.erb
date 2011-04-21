@@ -1,5 +1,11 @@
 <div class="addHour">
 <%= form_for @officehour do |f| %> 
+   <p>
+       <%= label_tag "course" %><br />
+       <%= f.select("user_course_id", current_user.user_courses.all.collect {|p| [ p.course.short_name, p.id ] }, {:prompt => 'Select Course'}) %>
+   </p>
+   
+   
   <p><%= label_tag 'Start Time' %><br/>
   <%= f.text_field :start_time %></p>
   
