@@ -55,6 +55,19 @@ class CoursesController < ApplicationController
   # DELETE /user_courses/1.xml
   def destroy
     @user_course = current_user.user_courses.find(params[:id])
+    
+    #delete all office hours
+    @officehours = @user_course.office_hours.all
+    @officehours.each do |o|
+      o.destroy
+    end
+    
+    #delete all ratings
+    @ratings = @user_course.ratings.all
+    @ratings.each do |r|
+      r.destroy
+    end
+    
     @user_course.destroy
 
     redirect_to(user_courses_url)

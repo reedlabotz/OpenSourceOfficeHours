@@ -60,6 +60,8 @@ class OfficeHoursController < ApplicationController
 
   def destroy
 	@officehour = current_user.office_hours.find(params[:id])
+
+	
 	@officehour.destroy
 	
 	redirect_to(office_hours_url)
